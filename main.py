@@ -1,18 +1,9 @@
-import random
-
-bottomofrange = input("What do you want the bottom of the range to be? ")
-topofrange = input("What do you want the top of the range to be? ")
-
-random_number = random.randint(int(bottomofrange), int(topofrange))
-
-guess = input("Guess what the random number is. ")
-
-while int(guess) != random_number:
-    if int(guess) > random_number:
-        print("Too high!")
+def greaterThan10(x):
+    if x > 10:
+        return "x is greater than 10"
+    elif x == 10:
+        return "x equals 10"
     else:
-        print("Too low!")
-    guess = input("Guess what the random number is. ")
+        return "x is not greater than 10"
 
-if int(guess) == random_number:
-    print("You have guessed the number correctly!")
+print(greaterThan10(10))
