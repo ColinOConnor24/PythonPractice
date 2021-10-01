@@ -9,12 +9,11 @@ guess = input("Guess what the random number is. ")
 guesses = 1
 
 while int(guess) != random_number:
+    guesses += 1
     if int(guess) > random_number:
         print("Too high!")
-        guesses += 1
     else:
         print("Too low!")
-        guesses += 1
     guess = input("Guess what the random number is. ")
 
 if int(guess) == random_number:
