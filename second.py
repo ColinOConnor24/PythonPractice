@@ -1,20 +1,34 @@
 import random
 
-bottomofrange = input("What do you want the bottom of the range to be? ")
-topofrange = input("What do you want the top of the range to be? ")
+user_wins = 0
+computer_wins = 0
 
-random_number = random.randint(int(bottomofrange), int(topofrange))
+options = ["rock", "paper", "scissors"]
 
-guess = input("Guess what the random number is. ")
-guesses = 1
+while True:
+    user_input = input('Type Rock/Paper/Scissors, or Q to quit: ').lower()
+    if user_input == "q":
+        break
+    if user_input not in options:
+        continue
+    random_number = random.randint(0, 2)
+    computer_pick = options[random_number]
+    print("The computer picked", computer_pick + ".")
 
-while int(guess) != random_number:
-    guesses += 1
-    if int(guess) > random_number:
-        print("Too high!")
+    if (user_input == "rock" and computer_pick == "scissors") or (user_input == "paper" and computer_pick == "rock") or (user_input == "scissors" and computer_pick == "paper"):
+        print("You won!")
+        user_wins += 1
+    elif user_input == computer_pick:
+        print("Tie!")
     else:
-        print("Too low!")
-    guess = input("Guess what the random number is. ")
+        print("You lost!")
+        computer_wins += 1
 
-if int(guess) == random_number:
-    print("You have guessed the number correctly in " + str(guesses) + " tries!")
+print("You won", user_wins, "times.")
+print("The computer won", computer_wins, "times.")
+if user_wins > computer_wins:
+    print("You won the entire game!")
+elif user_wins == computer_wins:
+    print("You tied the game with the computer!")
+else:
+    print("You lost the entire game!")
